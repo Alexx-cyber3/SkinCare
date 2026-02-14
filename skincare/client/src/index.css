@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sky-50: #fff1f2; /* rose-50 */
+  --color-sky-100: #ffe4e6; /* rose-100 */
+  --color-sky-200: #fecdd3; /* rose-200 */
+  --color-sky-300: #fda4af; /* rose-300 */
+  --color-sky-400: #fb7185; /* rose-400 */
+  --color-sky-500: #f43f5e; /* rose-500 */
+  --color-sky-600: #e11d48; /* rose-600 */
+  --color-sky-700: #be123c; /* rose-700 */
+  --color-sky-800: #9f1239; /* rose-800 */
+  --color-sky-900: #881337; /* rose-900 */
+  
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  --animate-scan: scan 2s ease-in-out infinite;
+}
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-pink-100 via-purple-100 to-cyan-100 min-h-screen text-slate-900 antialiased selection:bg-pink-200 selection:text-pink-900 overflow-x-hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .mobile-container {
+    @apply max-w-md mx-auto min-h-screen bg-white/80 backdrop-blur-xl shadow-2xl shadow-pink-200/50 relative overflow-x-hidden flex flex-col border-x border-white/50;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-pink-500 to-rose-600 text-white px-6 py-4 rounded-2xl font-black transition-all active:scale-[0.98] disabled:opacity-50 disabled:active:scale-100 shadow-lg shadow-pink-200 hover:shadow-pink-300 hover:scale-[1.02] uppercase tracking-widest text-[10px] border border-white/20;
+  }
+
+  .input-field {
+    @apply w-full px-6 py-5 bg-white/50 backdrop-blur-sm border-2 border-white/50 rounded-[1.5rem] focus:border-pink-400 focus:bg-white outline-none transition-all font-bold placeholder:text-slate-400 text-sm shadow-sm;
+  }
+  
+  .glass {
+    @apply bg-white/60 backdrop-blur-md border border-white/40 shadow-xl shadow-pink-100/20;
+  }
+
+  .card-shiny {
+    @apply bg-gradient-to-br from-white/80 to-white/40 backdrop-blur-md border border-white/60 shadow-lg shadow-pink-50 rounded-[2.5rem];
+  }
+  
+  .animate-in {
+    animation-duration: 0.6s;
+    animation-fill-mode: both;
+  }
+}
+
+.mirror {
+  transform: scaleX(-1);
+}
+
+@keyframes scan {
+  0%, 100% { top: 0%; opacity: 0; }
+  50% { top: 100%; opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-in-from-bottom {
+  from { transform: translateY(2rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-in-from-top {
+  from { transform: translateY(-1rem); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-in-from-right {
+  from { transform: translateX(1rem); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.fade-in { animation-name: fade-in; }
+.slide-in-from-bottom-8 { animation-name: slide-in-from-bottom; }
+.slide-in-from-top-2 { animation-name: slide-in-from-top; }
+.slide-in-from-right-4 { animation-name: slide-in-from-right; }
